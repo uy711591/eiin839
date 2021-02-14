@@ -1,0 +1,7 @@
+C:\Users\user\Desktop\Polytech\SI4A 2020-2021\S8\soc-ws\eiin839\TD2\WebDynamic\obj\Debug\WebDynamic.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\Polytech\SI4A 2020-2021\S8\soc-ws\eiin839\TD2\WebDynamic\bin\Debug\WebDynamic.exe.config
+C:\Users\user\Desktop\Polytech\SI4A 2020-2021\S8\soc-ws\eiin839\TD2\WebDynamic\bin\Debug\WebDynamic.exe
+C:\Users\user\Desktop\Polytech\SI4A 2020-2021\S8\soc-ws\eiin839\TD2\WebDynamic\bin\Debug\WebDynamic.pdb
+C:\Users\user\Desktop\Polytech\SI4A 2020-2021\S8\soc-ws\eiin839\TD2\WebDynamic\obj\Debug\WebDynamic.csprojAssemblyReference.cache
+C:\Users\user\Desktop\Polytech\SI4A 2020-2021\S8\soc-ws\eiin839\TD2\WebDynamic\obj\Debug\WebDynamic.exe
+C:\Users\user\Desktop\Polytech\SI4A 2020-2021\S8\soc-ws\eiin839\TD2\WebDynamic\obj\Debug\WebDynamic.pdb

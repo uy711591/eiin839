@@ -12,7 +12,7 @@ class Program
         //
         ProcessStartInfo start = new ProcessStartInfo();
         start.FileName = @"C:\Users\user\Desktop\Polytech\SI4A 2020-2021\S8\soc-ws\eiin839\TD2\ExecTest\bin\Debug\ExecTest.exe"; // Specify exe name.
-        start.Arguments = "Argument1"; // Specify arguments.
+        start.Arguments = "Argument1 Argument2"; // Specify arguments.
         start.UseShellExecute = false; 
         start.RedirectStandardOutput = true;
         //
