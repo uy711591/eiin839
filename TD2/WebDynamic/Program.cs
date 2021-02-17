@@ -73,21 +73,44 @@ namespace WebDynamic
                     }
                 }
 
+                // Obtain a response object.
+                HttpListenerResponse response = context.Response;
+
                 string responseString = "<HTML><BODY>" +
-                    "<p><a href=\"http://localhost:8080/toto/titi/displayFirstTwoParams?param1=Nice&param2=Sophia\">Click here to display params passed throught the url</a>" +
-                    "<p><a href=\"http://localhost:8080/toto/titi/displayFirstTwoParamsOnExternalExec?param1=Nice&param2=Sophia\">Click here to display params passed throught the url (on external process)</a>" +
-                    "</BODY></HTML>";
+                "<p id=\"id01\"></p> " +
+                "<script>"+
+                "var xmlhttp = new XMLHttpRequest();"+
+                "var url = \"http://localhost:8080/webservice/incr?param1=5\";" +
+                "xmlhttp.onreadystatechange = function() {"+
+                "    if (this.readyState == 4 && this.status == 200)"+
+                "    {"+
+                "        var response = JSON.parse(this.responseText);" +
+                "        document.getElementById(\"id01\").innerHTML = response.result;"+
+                "    }"+
+                "};"+
+                "xmlhttp.open(\"GET\", url, true);"+
+                "xmlhttp.send();"+
+                "</script> " +
+                "<p><a href=\"http://localhost:8080/toto/titi/displayFirstTwoParams?param1=Nice&param2=Sophia\">Click here to display params passed throught the url</a></p>" +
+                "<p><a href=\"http://localhost:8080/toto/titi/displayFirstTwoParamsOnExternalExec?param1=Nice&param2=Sophia\">Click here to display params passed throught the url (on external process)</a></p>" +
+                "</BODY></HTML>";
                 Mymethods mymethods = new Mymethods();
                 string param1 = HttpUtility.ParseQueryString(request.Url.Query).Get("param1");
                 string param2 = HttpUtility.ParseQueryString(request.Url.Query).Get("param2");
                 if (Equals(request.Url.LocalPath, "/toto/titi/displayFirstTwoParams"))
                     responseString = mymethods.displayFirstTwoParams(param1, param2);
-                else if(Equals(request.Url.LocalPath, "/toto/titi/displayFirstTwoParamsOnExternalExec"))
+                if(Equals(request.Url.LocalPath, "/toto/titi/displayFirstTwoParamsOnExternalExec"))
                     responseString = mymethods.displayFirstTwoParamsOnExternalExec(param1, param2);
+                else if (Equals(request.Url.LocalPath, "/webservice/incr"))
+                {
+                    Console.WriteLine(param1);
+                    int result = mymethods.increment(int.Parse(param1));
+                    Console.WriteLine(result);
+                    responseString = "{\"result\":\""+result+"\"}";
+                    response.ContentType = "application/json; charset=utf-8";
+                }
 
 
-                // Obtain a response object.
-                HttpListenerResponse response = context.Response;
                 byte[] buffer = System.Text.Encoding.UTF8.GetBytes(responseString);
                 // Get a response stream and write the response to it.
                 response.ContentLength64 = buffer.Length;
