@@ -1,14 +1,3 @@
-var map = L.map('map').setView([43.697370, 7.270170], 13);
-
-L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-    maxZoom: 18,
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
-        'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    id: 'mapbox/light-v9',
-    tileSize: 512,
-    zoomOffset: -1
-}).addTo(map);
-
 function findItinirary() {
     var targetUrl = "http://localhost:8733/Design_Time_Addresses/RoutingWithBikes/RestService/closestStations";
     var requestType = "GET";
@@ -25,6 +14,16 @@ function displayItinerary() {
     if (this.status !== 200) {
         console.log("Itinerary not retrieved. Check the error in the Network or Console tab.");
     } else {
+        document.getElementById('item').innerHTML = "<div id='map'></div>";
+        var map = L.map('map').setView([43.697370, 7.270170], 13);
+        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+            maxZoom: 18,
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            id: 'mapbox/light-v9',
+            tileSize: 512,
+            zoomOffset: -1
+        }).addTo(map);
         var itinerary = JSON.parse(this.responseText);
         var markerNames = ['Depart', 'Station 1', 'Station 2', 'Arrival'];
         for (var i = 0; i < itinerary.getClosestStationsResult.length; i++) {
@@ -40,7 +39,7 @@ function displayItinerary() {
                 var long2 = itinerary.getClosestStationsResult[i].metadata.query.coordinates[1][0];
                 var lat2 = itinerary.getClosestStationsResult[i].metadata.query.coordinates[1][1];
                 var marker = L.marker([lat2, long2]).addTo(map);
-                marker.bindPopup(markerNames[i + 1]);
+                marker.bindPopup(markerNames[3]);
             }
         }
     }
