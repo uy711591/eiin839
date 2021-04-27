@@ -16,6 +16,7 @@ namespace WebProxyService
         public RestApi(string uri)
         {
             System.Diagnostics.Debug.WriteLine("using rest api to perform a new request");
+            System.Diagnostics.Debug.WriteLine("uri : " + uri);
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(uri);
             request.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
 
