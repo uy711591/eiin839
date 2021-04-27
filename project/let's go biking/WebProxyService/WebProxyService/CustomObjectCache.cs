@@ -10,7 +10,7 @@ namespace WebProxyService
     class CustomObjectCache<T> where T: class
     {
         private ObjectCache cache = MemoryCache.Default;
-        private static double ONE_DAY_IN_SECONDS = 86400;
+        private static double FIVE_MINUTES_IN_SECONDS = 500;
 
         public T get(string key)
         {
@@ -19,10 +19,14 @@ namespace WebProxyService
                 System.Diagnostics.Debug.WriteLine("no cache found or old cache has expired");
                 var cacheItemPolicy = new CacheItemPolicy
                 {
-                    AbsoluteExpiration = DateTimeOffset.Now.AddSeconds(ONE_DAY_IN_SECONDS),
+                    AbsoluteExpiration = DateTimeOffset.Now.AddSeconds(FIVE_MINUTES_IN_SECONDS),
                 };
                 T value = (T)Activator.CreateInstance(typeof(T), key);
                 cache.Add(key, value, cacheItemPolicy);
+            }
+            else
+            {
+                System.Diagnostics.Debug.WriteLine("catch found");
             }
             return (T)cache.Get(key);
         }
