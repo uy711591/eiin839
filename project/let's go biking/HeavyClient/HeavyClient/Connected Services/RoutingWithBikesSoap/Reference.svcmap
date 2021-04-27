@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="71cbab35-4598-4601-918e-7ee11ec17748" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/RoutingWithBikes/SoapService/?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="a24fede1-7312-4a19-9e72-f611e7b0ba54" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/RoutingWithBikes/SoapService/?xsd=xsd3" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="41fc477b-c475-401c-a0e4-37f504bb17ca" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/RoutingWithBikes/SoapService/?xsd=xsd2" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="000c8999-ad99-443f-9e11-c38eb80b4bbd" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/RoutingWithBikes/SoapService/?xsd=xsd1" />
+    <MetadataFile FileName="Service.wsdl" MetadataType="Wsdl" ID="a857b860-0780-4e8f-b2ca-876275db1165" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/RoutingWithBikes/SoapService/?wsdl" />
+    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="a1a10dbd-a7e0-4399-9549-cabfadc69f53" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/RoutingWithBikes/SoapService/?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
